@@ -1,0 +1,68 @@
+#mainnav{
+	background-color:rgb(17, 113, 128);
+	color:red;
+	border:0px;
+}
+
+#logo{
+	height:220px;
+	padding-left:100px;
+	background-color:rgb(94, 179, 192);
+	background-repeat:no-repeat;
+}
+
+.container-fluid{
+	padding:0px;
+	margin:0px;
+}
+
+#name{
+	height:220px;
+	background-color:rgb(94, 179, 192);
+}
+
+#fam{
+	font-family:avantgarde md bt;
+	background-color:mintcream;
+}
+.parallex{
+    background-image:url('pics/parallex.jpg');
+    height: 100%;
+    background-attachment:fixed;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+	color:white;
+}
+
+.social-icons{
+	font-size:30px;
+	background-color:white;
+	padding-top:100px;
+}
+
+.button1 {
+    background-color:green; 
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.button1:hover{
+    background-color:darkgreen; 
+    border: none;
+    color: white;
+     padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}

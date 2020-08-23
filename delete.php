@@ -38,7 +38,7 @@ else{
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand"><font color="yellow">xyz college</font></a>
+      <a class="navbar-brand"><font color="yellow">DVSS UNIVERSITY</font></a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -115,3 +115,8 @@ else{
 	
 	</body>
 	</html>
+	<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

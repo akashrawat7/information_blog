@@ -13,12 +13,22 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="a.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="files/scroll.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="shortcut icon" href="images/favic.ico">		
+		<link rel="shortcut icon" href="images/favic.ico">	
+
+		  <style>
+         pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+         }
+      </style>	
 	</head>
-<body style="background-color:blue; background:fixed;">
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top" id="mainnav">
   <div class="container">
     <div class="navbar-header">
@@ -27,17 +37,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand"><font color="yellow">xyz college</font></a>
+      <a class="navbar-brand"><font color="yellow">DSVV</font></a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-		<li><a href="index.php"><font color="yellow">OUR COLLEGE</font></a></li>
-          <li><a href="post.php"><font color="yellow">INFORMATION FOR CS/IT</font></a></li>
-          <li><a href="contactus.php"><font color="yellow">CONTACT</font></a></li>
-		  <li><a href="admin.php"><font color="yellow">ADMIN LOGIN</font></a></li>
-        </ul>
-      </div>
+		<li><a href="index.php"><font color="white">OUR COLLEGE</font></a></li>
+          <li><a href="post.php"><font color="white" style="text-transform:uppercase;">Announcements and Information for students</font></a></li> <li><a href="contactus.php"><font color="White">CONTACT</font></a></li> <li><a href="admin.php"><font color="white">ADMIN LOGIN</font></a></li> </ul> </div>
     </div>
   </div>
 </nav><br><br>
@@ -47,16 +53,21 @@
 
 	<div  class="container-fluid text-center">
 	<div class="row">
-			<div id="logo" class="col-sm-4"><br>
+			<div id="logo" class="col-sm-4"><br><br><br><br>
 				<img src="pics/logo.png" class="img-responsive">
 			</div>
 				<div id="name"class="col-sm-8">
-					<br><br><font color="black"><h1>WELCOME TO xyz college</h1></font>
-					<font color="green"><h2>A Information Blog For Our Students</h2></font>
+					<br><br><font color="white"><h1>Welcome To DSVV</h1></font>
+					<font color="white"><h2>A Information Blog For Our Students</h2></font>
+				</div>
+		
+		<div class="col-sm-8">
+			<br><br>
+					<font><h2>Announcements For Students As Per the Departments:-</h2></font>
 				</div>
 				
-	</div><br><br>
-	<?php
+	</div><br>
+		<?php
 	require('connect.php');
 	$sql = "select * from posts order by id desc";
 	$resl= mysqli_query($con, $sql);
@@ -67,11 +78,22 @@
 	<div class="col-sm-12" style="background-color:white; float:right;">
 	
 	<div class="jumbotron" style="background-color:snowwhite;">
-	 <div class="topic" style="background-color:lightgreen;">
-	 <label for="name"> <h2><?php echo $row['topic']; ?></h2></label>
-	 </div><br><br>
+	 <div class="topic" style="background-color:#001433">
+	 <label for="name"> <h3 style="word-wrap:break-word; color:white"><?php echo $row['topic']; ?></h3></label>
+	 </div>
+	  <div class="dep" style="background-color:#66b3ff;">
+	 <label for="dep" style="text-align: center; padding:5px;">For :
+	  <?php $cf = json_decode($row['course_field'],true);
+                foreach($cf as $pt){
+                  echo $pt." //  "; 
+                }  
+           ?> 
+           	
+           </label>
+	 </div>
 	
-	<h3 style="word-wrap:break-word;"><p><?php echo $row['exp']; ?></p></h3>
+	
+	<h3 ><pre><?php echo $row['exp']; ?></pre></h3>
 	</div>
 	</div>
 	</div><br><br>
@@ -79,22 +101,22 @@
 	}
    ?>
 			<br><br><br><br><div class="row">
-				<div class="col-md-12">
+			<div class="col-md-12">
 				    <div class="social-icons">
-					<center><img src="pics/logo2.png" class="img-responsive"></center>
+					<center><img src="pics/logo.png" style="background-color: #4dffa6; padding:100px;" class="img-responsive"></center><br><br><br>
 					<h2 style=" color:black;">Follow Us On</h2>					
 						<a target="_#" class="twitter" href=""><i class="fa fa-twitter"></i></a></li> 						
 						<a target="_#" class="facebook" href=""><i class="fa fa-facebook"></i></a>
 						<a target="_#" class="linkedin" href=""><i class="fa fa-linkedin"></i></a>
 						<a target="_#" class="web" href=""><i class="fa fa-globe"></i></a>												
 						
-				</div>
+				</div><br><br><br>
 				  <div class="row">
           <div class="col-md-6">
-            <p style="font-size:20px; background-color:white; color:black; height:40px;">&copy; 2018 Akash Rawat</p>
+            <p style="font-size:20px; background-color:white; color:black; height:40px;">&copy; 2020 Himanshu</p>
           </div>
           <div class="col-md-6">
-            <p style="font-size:20px; background-color:white; color:black; height:40px;">Designed by Akash Rawat</p>
+            <p style="font-size:20px; background-color:white; color:black; height:40px;">Designed by Himanshu Naithani</p>
           </div>
         </div>
 	</div>

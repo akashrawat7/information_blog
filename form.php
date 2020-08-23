@@ -8,6 +8,7 @@
 	else{
 		header('location:admin.php');
 	}
+	error_reporting(0);
 	?>
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand"><font color="yellow">xyz college</font></a>
+      <a class="navbar-brand"><font color="yellow">DSVV University</font></a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -48,7 +49,8 @@
 		
           <li><a href="post.php" ><font color="yellow">BLOG</font></a></li>
 		  <li><a href="delete.php" ><font color="yellow">DELETE INFO</font></a></li>
-		  <li><a href="logout.php" style="padding-left:800px;"><font color="yellow">ADMIN LOGOUT</font></a></li>
+		   <li><a href="change.php" ><font color="yellow">CHANGE PASSWORD</font></a></li>
+		  <li><a href="logout.php" ><font color="yellow">ADMIN LOGOUT</font></a></li>
         </ul>
       </div>
     </div>
@@ -64,8 +66,14 @@
 		
 		$topic = $_POST['topic'];
 		$exp = $_POST['exp'];
-		
-		$ins = "insert into posts (topic,exp)"."values('$topic','$exp')";
+		$courseField = $_POST['c1'];
+		$check = json_encode($courseField,true);
+
+           if(isset($courseField)==0){
+           $error = "please select the department" ;
+                     }
+           	else{
+		$ins = "insert into posts (topic,exp,course_field)"."values('$topic','$exp','$check')";
 		
 		$ins_post = mysqli_query($con, $ins);
 		
@@ -74,25 +82,60 @@
 		}
 		else
 		{
-			echo"<script>alert('there is an error')</script>";
+			print"<script>alert('there is an error')</script>";
 		}
 	}
+	
+}
 	?>
 
 			
 	<div  class="container ">
 	<div class="col-sm-12">			
   <form action="form.php" method="post">
+  
     <div class="form-group"><br><br><br><Br>
       <label for="title">Enter Post Title:</label>
-      <input type="text" class="form-control" id="topic" placeholder="Enter Topic" name="topic" autocomplete="off" required>
-    </div>
+      <input style="border: 2px solid #008CBA;" type="text" class="form-control" id="topic" placeholder="Enter Topic" name="topic" autocomplete="off" required>
+    </div> <br>
+    		<div class="form-group">
+							<label>	<span><?php if(isset($error)){
+						echo "<center><h5 style='color:white; background-color:red; line-height: 20px; height:20px;'><b>".$error."</b></h5></center>";  }
+						?></span>
+								Select Departments:<br><br>
+								
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]"  value="CS/IT Department">&nbsp;CS/IT Department
+								</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label class=">form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]" value="Buisness Administration Department">&nbsp;Buisness Administration Department
+								</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label class=">form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]" value="Arts Department">&nbsp;Arts Department
+								</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<label class=">form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]" value="Medical Department">&nbsp;Medical Department
+								</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]" value="Yogic science Department">&nbsp;Yogic science Department
+								</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" name="c1[]" value="All Departments">&nbsp;All Departments
+								</label>
+							</label>
+						</div>
+
     <div class="form-group">
       <label for="exp">Explaination:</label>
-      <textarea type="text" class="form-control" id="exp" placeholder="Write Explaination" autocomplete="off" name="exp" style="height:300px;" required></textarea>
-    </div><br><br>
+      <textarea type="text" class="form-control" id="exp" placeholder="Write Explaination" autocomplete="off" name="exp" style="height:300px; border: 2px solid #008CBA;" required></textarea>
+    </div>
    
-    <button type="submit" id="insert_post" name="insert_post">Submit</button>
+    <button type="submit" class="button button2" id="insert_post" name="insert_post">Submit</button> <br><br>
+
+
+      <div class="col-md-12">
+            <p style="font-size:20px; background-color:white; color:black; height:40px;">&copy; 2020 Only for admin</p>
+          </div>
 	
   </form>
 </div>
@@ -105,3 +148,8 @@
 	
 
 </html>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

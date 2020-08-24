@@ -15,7 +15,7 @@
 <html lang=en>
 	<head>
 		<title>
-		project
+		Information blog
 		</title>
 		<meta charset=utf8>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,12 +68,13 @@
 		$exp = $_POST['exp'];
 		$courseField = $_POST['c1'];
 		$check = json_encode($courseField,true);
+		$tarik = $_POST['date'];
 
            if(isset($courseField)==0){
            $error = "please select the department" ;
                      }
            	else{
-		$ins = "insert into posts (topic,exp,course_field)"."values('$topic','$exp','$check')";
+		$ins = "insert into posts (topic,exp,course_field,date)"."values('$topic','$exp','$check','$tarik')";
 		
 		$ins_post = mysqli_query($con, $ins);
 		
@@ -98,6 +99,11 @@
       <label for="title">Enter Post Title:</label>
       <input style="border: 2px solid #008CBA;" type="text" class="form-control" id="topic" placeholder="Enter Topic" name="topic" autocomplete="off" required>
     </div> <br>
+    <?php
+     date_default_timezone_set('Asia/Kolkata');
+$date = date('F d, Y, g: i: a');
+    ?>
+      <input type="hidden" name="date" value="<?php echo $date; ?>"> 
     		<div class="form-group">
 							<label>	<span><?php if(isset($error)){
 						echo "<center><h5 style='color:white; background-color:red; line-height: 20px; height:20px;'><b>".$error."</b></h5></center>";  }
@@ -127,7 +133,7 @@
 
     <div class="form-group">
       <label for="exp">Explaination:</label>
-      <textarea type="text" class="form-control" id="exp" placeholder="Write Explaination" autocomplete="off" name="exp" style="height:300px; border: 2px solid #008CBA;" required></textarea>
+      <textarea type="text" class="form-control" id="exp" placeholder="Write Explaination" autocomplete="off" name="exp" style="height:200px; border: 2px solid #008CBA;" required></textarea>
     </div>
    
     <button type="submit" class="button button2" id="insert_post" name="insert_post">Submit</button> <br><br>

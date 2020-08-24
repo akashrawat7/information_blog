@@ -3,7 +3,7 @@
 	<head>
     
 		<title>
-		project
+		Information blog
 		</title>
 		<meta charset=utf8>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
 	
 	<div class="jumbotron" style="background-color:snowwhite;">
 	 <div class="topic" style="background-color:#001433">
-	 <label for="name"> <h3 style="word-wrap:break-word; color:white"><?php echo $row['topic']; ?></h3></label>
+	 <label for="name"> <h4 style="word-wrap:break-word; color:white"><?php echo $row['topic']; ?></h4></label>
 	 </div>
 	  <div class="dep" style="background-color:#66b3ff;">
 	 <label for="dep" style="text-align: center; padding:5px;">For :
@@ -90,8 +90,11 @@
            ?> 
            	
            </label>
+          
 	 </div>
-	
+	     <div class="col-sm-2" style="background-color:black; float:right; border-radius: 4px; color:white;"> 
+            <?php echo $row['date']; ?>
+           </div>
 	
 	<h3 ><pre><?php echo $row['exp']; ?></pre></h3>
 	</div>
